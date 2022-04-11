@@ -10,7 +10,7 @@ const Card = ({country}) => {
             to={`/${name.common}`}
         >
             <div
-                className={`${
+                className={`self-stretch ${
                     currentTheme ? "bg-white text-black" : "bg-dark-blue-dark text-white"
                 } w-60 m-auto rounded-md cursor-pointer transition-transform transform hover:scale-110 m-5 shadow-md`}
             >

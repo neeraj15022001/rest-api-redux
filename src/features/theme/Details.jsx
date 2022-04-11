@@ -30,6 +30,9 @@ const Details = () => {
                     }`}
                     style={{
                         backgroundImage: `url(${coatOfArms.png})`,
+                        backgroundSize: "contain",
+                        backgroundRepeat: "no-repeat",
+                        backgroundPosition: "center"
                     }}
                 ></div>
                 <div className={`w-1/2`}>
@@ -79,7 +82,7 @@ const Details = () => {
                         </div>
                     </div>
                     <div className="sm:flex sm:items-center sm:justify-start flex-wrap">
-                        <span className="capitalize m-4r">border countries: </span>
+                        <span className="capitalize mr-4">border countries: </span>
                         {borders && borders.map(border => {
                             return (
                                 <div
