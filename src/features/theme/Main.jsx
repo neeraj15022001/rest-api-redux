@@ -11,6 +11,7 @@ const Main = () => {
     const countriesError = useSelector(state => state.countries.error)
     const countries = useSelector(state => state.countries);
     const [input, setInput] = useState("")
+    const [filter, setFilter] = useState("Worldwide");
     const [filteredArray, setFilteredArray] = useState([])
     useEffect(() => {
         if (countriesStatus === "idle") {
@@ -34,6 +35,7 @@ const Main = () => {
         if (countries) {
             if (e.target.value === "") {
                 setFilteredArray(() => countries.countries)
+                setFilter(() => "Worldwide")
             } else {
                 let newContent = countries.countries.filter(item => {
                     let regex = new RegExp(input, 'i')
@@ -44,6 +46,7 @@ const Main = () => {
         }
     }
     const handleFilterChange = (e) => {
+        setFilter(e.target.value)
         if(e.target.value.toLowerCase() === "worldwide") {
             setFilteredArray(() => countries.countries)
         } else {
@@ -65,7 +68,7 @@ const Main = () => {
                 </div>
                 {/*    Filter*/}
                 <div>
-                    <select name="region-select" defaultValue={"Worldwide"} onChange={handleFilterChange}
+                    <select name="region-select" value={filter} onChange={handleFilterChange}
                             className={`${currentTheme ? `bg-white text-black` : "bg-dark-blue-dark text-white"} px-3 py-2 outline-none`}>
                         <option value="Worldwide">Worldwide</option>
                         <option value="Africa">Africa</option>
